@@ -1,4 +1,4 @@
-# cronometro
+# Cronômetro
 Este é um cronômetro estilizado sem frameworks.
 ## Estrutura
 A estrutura segue, através do documento raíz de visualização (cronometro.htm), documentos em CSS (logicamente com CSS externo) e Javascript, em que:
