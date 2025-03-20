@@ -3,69 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronômetro</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        #cronometro {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px;
-            margin: 5px;
-        }
-    </style>
+    <title>Cronômetro em JavaScript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <div id="cronometro">00:00:00</div>
-        <button onclick="start()">Iniciar</button>
-        <button onclick="stop()">Parar</button>
-        <button onclick="reset()">Resetar</button>
+    <div id="cronometro">00:00:00</div>
+    <div class="botoes">
+        <button onclick="Cronometro.iniciar()">Iniciar</button>
+        <button onclick="Cronometro.parar()">Parar</button>
+        <button onclick="Cronometro.resetar()">Resetar</button>
     </div>
-
-    <script>
-        let timer;
-        let seconds = 0;
-        let isRunning = false;
-
-        function updateDisplay() {
-            const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
-            const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-            const secs = String(seconds % 60).padStart(2, '0');
-            document.getElementById('cronometro').textContent = `${hrs}:${mins}:${secs}`;
-        }
-
-        function start() {
-            if (!isRunning) {
-                isRunning = true;
-                timer = setInterval(() => {
-                    seconds++;
-                    updateDisplay();
-                }, 1000);
-            }
-        }
-
-        function stop() {
-            if (isRunning) {
-                clearInterval(timer);
-                isRunning = false;
-            }
-        }
-
-        function reset() {
-            stop();
-            seconds = 0;
-            updateDisplay();
-        }
-    </script>
+    <script src="cronometro.js"></script>
 </body>
 </html>
